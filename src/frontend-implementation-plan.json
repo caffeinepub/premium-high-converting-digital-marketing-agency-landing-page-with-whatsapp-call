@@ -1,0 +1,58 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Set IC project domain slug and prepare mainnet deployment record",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Set and validate the project domain/slug as techmarket-digital in the frontend deployment configuration artifacts.",
+      "acceptanceCriteria": [
+        "The configured project domain/slug value is exactly: techmarket-digital.",
+        "Domain validation passes (length between 5 and 50; contains only letters, numbers, and hyphens)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/project-domain.json",
+          "operation": "create",
+          "description": "Create a single source-of-truth config file storing the project domain/slug value exactly as \"techmarket-digital\" and nothing else (to avoid accidental drift)."
+        },
+        {
+          "path": "frontend/scripts/deploy-mainnet.sh",
+          "operation": "modify",
+          "description": "Update the deployment helper script to read the domain/slug from frontend/project-domain.json and fail fast if it does not match the platform validation rules (5–50 chars; only letters, numbers, and hyphens) or if it is not exactly \"techmarket-digital\"."
+        },
+        {
+          "path": "frontend/DEPLOYMENT.md",
+          "operation": "modify",
+          "description": "Document where the domain/slug is configured (frontend/project-domain.json), explicitly state the required value \"techmarket-digital\", and note the validation rules that must pass before deploying."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Support mainnet push-live process by ensuring deployment documentation and records capture the live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
+      "acceptanceCriteria": [
+        "A successful mainnet deployment is completed for both frontend and backend canisters.",
+        "frontend/DEPLOYED_MAINNET.md is filled with the live site URL and the frontend/backend canister IDs produced by this deployment.",
+        "The live site URL loads successfully in a browser."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/DEPLOYED_MAINNET.md",
+          "operation": "modify",
+          "description": "Expand the template to include clearly labeled fields for: live site URL, frontend canister ID, backend canister ID, deployment timestamp, and a short verification checklist referencing the smoke check doc."
+        },
+        {
+          "path": "frontend/scripts/deploy-mainnet.sh",
+          "operation": "modify",
+          "description": "After deployment completes, print a clear reminder that frontend/DEPLOYED_MAINNET.md must be updated with the live URL and canister IDs from this deployment, and point to the exact commands already referenced for retrieving those values."
+        },
+        {
+          "path": "frontend/scripts/post-deploy-smoke-check.md",
+          "operation": "modify",
+          "description": "Ensure the smoke-check instructions explicitly require verifying that the recorded live URL in frontend/DEPLOYED_MAINNET.md loads successfully in a browser and that the canister IDs match the deployed canisters."
+        }
+      ]
+    }
+  ]
+}

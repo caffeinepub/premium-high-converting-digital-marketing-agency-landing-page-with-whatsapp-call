@@ -1,0 +1,55 @@
+{
+  "kind": "build_request",
+  "title": "Set project domain to techmarket-digital and deploy live to IC mainnet",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "Set the project domain/slug to \"techmarket-digital\" wherever the app’s deployment/project configuration stores the domain value, ensuring it meets the platform validation rules (5–50 chars; only letters, numbers, and hyphens).",
+      "target": "unknown",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Set the project domain to: techmarket-digital"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The configured project domain/slug value is exactly: techmarket-digital.",
+        "Domain validation passes (length between 5 and 50; contains only letters, numbers, and hyphens)."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Deploy (“push live”) the latest frontend and backend canisters to Internet Computer mainnet after the domain is set, and record the resulting live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-4"
+        ],
+        "quotes": [
+          "Then push it live."
+        ]
+      },
+      "acceptanceCriteria": [
+        "A successful mainnet deployment is completed for both frontend and backend canisters.",
+        "frontend/DEPLOYED_MAINNET.md is filled with the live site URL and the frontend/backend canister IDs produced by this deployment.",
+        "The live site URL loads successfully in a browser."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must remain a single Motoko actor with all logic in backend/main.mo; add backend/migration.mo only if an upgrade requires state migration.",
+    "Do not edit files under frontend/src/components/ui or any frontend immutablePaths listed in SYSTEM_CONTEXT; compose them instead.",
+    "Deployment must use only free Internet Computer hosting options (no paid providers, no subscriptions)."
+  ],
+  "nonGoals": [
+    "Setting up or managing an external/custom DNS domain outside of the Internet Computer canister URL (e.g., custom domain mapping).",
+    "Adding any new product features or changing existing site content/copy beyond what is required to set the project domain and deploy."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

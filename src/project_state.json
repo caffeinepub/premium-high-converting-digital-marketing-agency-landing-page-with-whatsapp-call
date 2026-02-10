@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 11,
+  "summary": "Build a high-converting, modern, premium marketing agency website for a digital marketing & growth agency focused on lead generation, trust/urgency, and direct contact via WhatsApp/Call/Lead Form for Dubai & Indian clients.",
+  "architectural_notes": [
+    "Mobile-first responsive layout with clear above-the-fold messaging and direct contact actions (WhatsApp/Call/Form).",
+    "Prioritize performance (fast loading) and SEO fundamentals across pages.",
+    "Use minimal text, bold headings, and smooth animations while maintaining clarity and conversion focus.",
+    "Set primary WhatsApp CTA/button href to https://wa.me/918824495515 (direct chat link).",
+    "Set Instagram social button href to https://www.instagram.com/techmarket.digital?igsh=ZTRjaTl3d255bXNw&utm_source=ig_contact_invite.",
+    "Set Facebook social button href to https://www.facebook.com/share/1CEG54jCVe/.",
+    "Deployment/hosting must use only a free plan (no payments or subscriptions) and deliver full access/ownership details to the user along with the live link.",
+    "Set the project domain/slug to: techmarket-digital (must be 5–50 chars; letters/numbers/hyphens only)."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-a-single-page-homepage-that-clearly-presents-the-digital-marketing-growth-agency-offer-using-the-specified-sections-and-copy-hero-headline-subheadline-2-ctas-trust-services-8-service-cards-why-choose-us-results-2x-5x-growth-placeholders-process-4-steps-cta-block-and-contact-lead-form-contact-actions",
+      "title": "Create a single-page homepage that clearly presents the digital marketing & growth agency offer using the specified sections and copy: Hero (headline/subheadline + 2 CTAs), Trust, Services (8 service cards), Why Choose Us, Results (2x–5x growth placeholders), Process (4 steps), CTA block, and Contact (lead form + contact actions).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-direct-contact-actions-whatsapp-link-button-click-to-call-link-button-and-sticky-whatsapp-chat-button-additionally-show-a-sticky-call-button-on-mobile-as-requested",
+      "title": "Implement direct-contact actions: WhatsApp link/button, click-to-call link/button, and sticky WhatsApp chat button; additionally, show a sticky call button on mobile as requested.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-and-wire-up-the-lead-form-so-submissions-are-stored-in-the-motoko-canister-and-the-user-gets-a-clear-success-error-state-without-leaving-the-page",
+      "title": "Build and wire up the lead form so submissions are stored in the Motoko canister and the user gets a clear success/error state without leaving the page.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-clean-modern-premium-visual-theme-with-dark-light-contrast-bold-headings-minimal-text-smooth-animations-and-a-mobile-first-layout-across-all-sections",
+      "title": "Apply a clean, modern, premium visual theme with dark + light contrast, bold headings, minimal text, smooth animations, and a mobile-first layout across all sections.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-site-is-fast-loading-and-seo-optimized-semantic-structure-page-metadata-and-performant-assets",
+      "title": "Ensure the site is fast-loading and SEO-optimized: semantic structure, page metadata, and performant assets.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-use-confident-professional-english-copy-with-simple-hinglish-flavor-light-readable-phrasing-while-keeping-messaging-results-focused-and-trust-oriented-and-incorporate-the-provided-cta-text-examples-where-appropriate",
+      "title": "Use confident, professional English copy with simple Hinglish flavor (light, readable phrasing) while keeping messaging results-focused and trust-oriented, and incorporate the provided CTA text examples where appropriate.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-brand-visuals-as-static-assets-and-use-them-in-the-ui-a-premium-agency-logo-and-an-abstract-hero-background-graphic-consistent-with-the-theme",
+      "title": "Add generated brand visuals as static assets and use them in the UI: a premium agency logo and an abstract hero background graphic consistent with the theme.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-site-s-whatsapp-contact-action-so-that-every-whatsapp-button-link-including-header-cta-hero-cta-contact-section-button-and-sticky-whatsapp-floating-button-opens-exactly-this-url-https-wa-me-918824495515",
+      "title": "Update the site’s WhatsApp contact action so that every WhatsApp button/link (including header CTA, hero CTA, contact section button, and sticky WhatsApp floating button) opens exactly this URL: https://wa.me/918824495515",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-website-s-social-media-buttons-so-the-instagram-button-links-to-https-www-instagram-com-techmarket-digital-igsh-ztrjatl3d255bxnw-utm-source-ig-contact-invite-and-the-facebook-button-links-to-https-www-facebook-com-share-1ceg54jcve-replacing-any-placeholder-href-values",
+      "title": "Update the website’s social media buttons so the Instagram button links to https://www.instagram.com/techmarket.digital?igsh=ZTRjaTl3d255bXNw&utm_source=ig_contact_invite and the Facebook button links to https://www.facebook.com/share/1CEG54jCVe/ (replacing any placeholder href values).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deploy-go-live-the-latest-version-of-the-app-frontend-and-backend-canister-to-the-internet-computer-so-the-updated-social-links-are-available-on-the-live-site",
+      "title": "Deploy (“go live”) the latest version of the app (frontend and backend canister) to the Internet Computer so the updated social links are available on the live site.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-publish-the-current-version-of-the-app-frontend-backend-canisters-live-on-the-internet-computer-mainnet-using-only-free-hosting-free-plan-options-with-no-payments-and-no-subscriptions-required",
+      "title": "Publish the current version of the app (frontend + backend canisters) live on the Internet Computer mainnet using only free hosting / free plan options, with no payments and no subscriptions required.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-publishing-provide-the-live-link-and-full-access-ownership-handoff-details-for-the-deployed-canisters-including-all-relevant-canister-ids-and-clear-steps-to-ensure-the-user-has-controller-admin-access",
+      "title": "After publishing, provide the live link and full access/ownership handoff details for the deployed canisters (including all relevant canister IDs and clear steps to ensure the user has controller/admin access).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-deployment-documentation-to-explicitly-reflect-the-free-hosting-no-payments-no-subscriptions-requirement-and-include-the-post-publish-handoff-checklist-live-link-canister-ids-access-ownership-verification",
+      "title": "Update the deployment documentation to explicitly reflect the 'free hosting / no payments / no subscriptions' requirement and include the post-publish handoff checklist (live link, canister IDs, access/ownership verification).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-set-the-project-domain-slug-to-techmarket-digital-wherever-the-app-s-deployment-project-configuration-stores-the-domain-value-ensuring-it-meets-the-platform-validation-rules-5-50-chars-only-letters-numbers-and-hyphens",
+      "title": "Set the project domain/slug to \"techmarket-digital\" wherever the app’s deployment/project configuration stores the domain value, ensuring it meets the platform validation rules (5–50 chars; only letters, numbers, and hyphens).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-deploy-push-live-the-latest-frontend-and-backend-canisters-to-internet-computer-mainnet-after-the-domain-is-set-and-record-the-resulting-live-url-and-canister-ids-in-frontend-deployed-mainnet-md",
+      "title": "Deploy (“push live”) the latest frontend and backend canisters to Internet Computer mainnet after the domain is set, and record the resulting live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Homepage hero section with specified headline/subheadline and primary CTAs (Free Strategy Call + WhatsApp) in a clean, premium dark/light contrast style",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Homepage sections: Trust (Trusted by Growing Brands), Services (icon cards), Why Choose Us, Results (2x–5x growth placeholders), Process (4 steps), CTA section, and Contact section",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Contact capture and direct outreach: lead form (Name, Phone, Email, Business Type) plus prominent WhatsApp and Call actions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Sticky WhatsApp chat button and sticky Call button optimized for mobile",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Mobile-first performance-focused build with fast loading, smooth animations, bold headings, minimal text, and SEO optimization",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Site copy tone and CTA copy: confident, professional, simple Hinglish with results/trust emphasis and provided CTA text examples",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Update the site’s WhatsApp button/link to use https://wa.me/918824495515 as the primary WhatsApp contact action",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Update social media buttons: set Instagram button link to the provided Instagram profile URL and Facebook button link to the provided Facebook share URL",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Publish/go-live the current version using only free hosting (no payments/subscriptions) and provide the live link plus full access/ownership details",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Premium, high-converting digital marketing agency landing page with WhatsApp/Call + lead form",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
