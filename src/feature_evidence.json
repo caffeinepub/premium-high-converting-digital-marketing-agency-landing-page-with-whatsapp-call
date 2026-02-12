@@ -2,12 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-set-the-project-domain-slug-to-techmarket-digital-wherever-the-app-s-deployment-project-configuration-stores-the-domain-value-ensuring-it-meets-the-platform-validation-rules-5-50-chars-only-letters-numbers-and-hyphens",
-      "featureTitle": "Set the project domain/slug to \"techmarket-digital\" wherever the app’s deployment/project configuration stores the domain value, ensuring it meets the platform validation rules (5–50 chars; only letters, numbers, and hyphens).",
+      "featureId": "feature-update-the-site-wide-phone-number-used-for-all-tel-links-so-the-call-now-call-us-button-dials-918824495515",
+      "featureTitle": "Update the site-wide phone number used for all tel: links so the Call Now/Call Us button dials +918824495515.",
       "files": [
-        "frontend/DEPLOYMENT.md",
-        "frontend/project-domain.json",
-        "frontend/scripts/deploy-mainnet.sh"
+        "frontend/src/config/contact.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -17,27 +15,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-deploy-push-live-the-latest-frontend-and-backend-canisters-to-internet-computer-mainnet-after-the-domain-is-set-and-record-the-resulting-live-url-and-canister-ids-in-frontend-deployed-mainnet-md",
-      "featureTitle": "Deploy (“push live”) the latest frontend and backend canisters to Internet Computer mainnet after the domain is set, and record the resulting live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
-      "files": [
-        "frontend/DEPLOYED_MAINNET.md",
-        "frontend/scripts/deploy-mainnet.sh",
-        "frontend/scripts/post-deploy-smoke-check.md"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-15"
+        "REQ-1"
       ],
       "confidence": "high"
     }

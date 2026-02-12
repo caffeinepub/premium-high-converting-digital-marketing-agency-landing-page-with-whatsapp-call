@@ -1,9 +1,10 @@
 import { SiX, SiFacebook, SiInstagram, SiLinkedin } from 'react-icons/si';
+import { siteConfig } from '../../config/siteConfig';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
   const appIdentifier = encodeURIComponent(
-    typeof window !== 'undefined' ? window.location.hostname : 'marketing-agency'
+    typeof window !== 'undefined' ? window.location.hostname : 'techmarket-digital'
   );
 
   return (
@@ -12,13 +13,11 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <img
-              src="/assets/generated/agency-logo.dim_512x192.png"
-              alt="Digital Marketing Agency"
-              className="h-10 w-auto mb-4"
-            />
+            <h3 className="text-xl font-bold text-foreground mb-2">
+              {siteConfig.brand.displayName}
+            </h3>
             <p className="text-sm text-muted-foreground">
-              Performance-driven digital marketing that delivers real results.
+              {siteConfig.brand.tagline}
             </p>
           </div>
 
@@ -66,7 +65,7 @@ export function Footer() {
             <h3 className="font-semibold mb-4">Connect With Us</h3>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/share/1CEG54jCVe/"
+                href={siteConfig.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -75,7 +74,7 @@ export function Footer() {
                 <SiFacebook size={20} />
               </a>
               <a
-                href="https://www.instagram.com/techmarket.digital?igsh=ZTRjaTl3d255bXNw&utm_source=ig_contact_invite"
+                href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
@@ -84,14 +83,18 @@ export function Footer() {
                 <SiInstagram size={20} />
               </a>
               <a
-                href="#"
+                href={siteConfig.social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
                 <SiLinkedin size={20} />
               </a>
               <a
-                href="#"
+                href={siteConfig.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="X (Twitter)"
               >
@@ -104,7 +107,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
           <p>
-            © {currentYear} Digital Marketing Agency. All rights reserved.
+            © {currentYear} {siteConfig.brand.displayName}. All rights reserved.
           </p>
           <p className="mt-2">
             Built with ❤️ using{' '}

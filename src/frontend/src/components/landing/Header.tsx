@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { contactConfig } from '../../config/contact';
+import { siteConfig } from '../../config/siteConfig';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -18,13 +19,11 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <img
-              src="/assets/generated/agency-logo.dim_512x192.png"
-              alt="Digital Marketing Agency"
-              className="h-10 md:h-12 w-auto"
-            />
+          {/* Brand Name */}
+          <div className="shrink-0">
+            <span className="text-xl md:text-2xl font-bold text-foreground">
+              {siteConfig.brand.displayName}
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -62,14 +61,14 @@ export function Header() {
               size="sm"
               onClick={() => scrollToSection('contact')}
             >
-              Get Free Strategy Call
+              {siteConfig.cta.headerPrimary}
             </Button>
             <Button
               size="sm"
               asChild
             >
               <a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                WhatsApp Now
+                {siteConfig.cta.headerSecondary}
               </a>
             </Button>
           </div>
@@ -118,14 +117,14 @@ export function Header() {
                   className="w-full"
                   onClick={() => scrollToSection('contact')}
                 >
-                  Get Free Strategy Call
+                  {siteConfig.cta.headerPrimary}
                 </Button>
                 <Button
                   className="w-full"
                   asChild
                 >
                   <a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    WhatsApp Now
+                    {siteConfig.cta.headerSecondary}
                   </a>
                 </Button>
               </div>

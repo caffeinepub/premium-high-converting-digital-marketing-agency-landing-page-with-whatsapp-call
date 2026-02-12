@@ -1,56 +1,60 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Set IC project domain slug and prepare mainnet deployment record",
+  "title": "Fix site-wide Call Now/Call Us phone number and centralize tel: usage",
   "requirements": [
     {
-      "id": "REQ-14",
-      "summary": "Set and validate the project domain/slug as techmarket-digital in the frontend deployment configuration artifacts.",
+      "id": "REQ-1",
+      "summary": "Set the centralized phone number so all tel: links dial +918824495515.",
       "acceptanceCriteria": [
-        "The configured project domain/slug value is exactly: techmarket-digital.",
-        "Domain validation passes (length between 5 and 50; contains only letters, numbers, and hyphens)."
+        "In frontend/src/config/contact.ts, contactConfig.phoneNumber is set to \"+918824495515\".",
+        "contactConfig.phoneUrl resolves to \"tel:+918824495515\" at runtime.",
+        "On the deployed site, tapping the Call Now/Call Us button opens the dialer with +918824495515 on mobile."
       ],
       "file_operations": [
         {
-          "path": "frontend/project-domain.json",
-          "operation": "create",
-          "description": "Create a single source-of-truth config file storing the project domain/slug value exactly as \"techmarket-digital\" and nothing else (to avoid accidental drift)."
-        },
-        {
-          "path": "frontend/scripts/deploy-mainnet.sh",
+          "path": "frontend/src/config/contact.ts",
           "operation": "modify",
-          "description": "Update the deployment helper script to read the domain/slug from frontend/project-domain.json and fail fast if it does not match the platform validation rules (5–50 chars; only letters, numbers, and hyphens) or if it is not exactly \"techmarket-digital\"."
-        },
-        {
-          "path": "frontend/DEPLOYMENT.md",
-          "operation": "modify",
-          "description": "Document where the domain/slug is configured (frontend/project-domain.json), explicitly state the required value \"techmarket-digital\", and note the validation rules that must pass before deploying."
+          "description": "Update contactConfig.phoneNumber to \"+918824495515\" and ensure the computed phoneUrl continues to generate \"tel:+918824495515\" at runtime."
         }
       ]
     },
     {
-      "id": "REQ-15",
-      "summary": "Support mainnet push-live process by ensuring deployment documentation and records capture the live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
+      "id": "REQ-2",
+      "summary": "Remove any hard-coded phone/tel values and ensure all call CTAs use contactConfig.phoneUrl.",
       "acceptanceCriteria": [
-        "A successful mainnet deployment is completed for both frontend and backend canisters.",
-        "frontend/DEPLOYED_MAINNET.md is filled with the live site URL and the frontend/backend canister IDs produced by this deployment.",
-        "The live site URL loads successfully in a browser."
+        "A code search of the frontend shows no other hard-coded tel: links or the old number \"+971501234567\".",
+        "The sticky call button (frontend/src/components/landing/StickyContactButtons.tsx) continues to use contactConfig.phoneUrl and dials +918824495515."
       ],
       "file_operations": [
         {
-          "path": "frontend/DEPLOYED_MAINNET.md",
+          "path": "frontend/src/components/landing/StickyContactButtons.tsx",
           "operation": "modify",
-          "description": "Expand the template to include clearly labeled fields for: live site URL, frontend canister ID, backend canister ID, deployment timestamp, and a short verification checklist referencing the smoke check doc."
+          "description": "Verify the sticky Call button href is sourced from contactConfig.phoneUrl (and not a hard-coded tel: link) and that it correctly dials +918824495515 after the contactConfig update."
         },
         {
-          "path": "frontend/scripts/deploy-mainnet.sh",
+          "path": "frontend/src/components/landing/Sections.tsx",
           "operation": "modify",
-          "description": "After deployment completes, print a clear reminder that frontend/DEPLOYED_MAINNET.md must be updated with the live URL and canister IDs from this deployment, and point to the exact commands already referenced for retrieving those values."
+          "description": "Audit all phone/call CTAs (e.g., Contact section call button) to ensure they use contactConfig.phoneUrl only; remove/replace any hard-coded tel: links or references to the old number +971501234567 if present."
         },
+        {
+          "path": "frontend/src/components/landing/Header.tsx",
+          "operation": "modify",
+          "description": "Audit header/mobile menu CTAs to ensure there are no hard-coded tel: links or embedded phone numbers; keep contact actions routed through centralized config (contactConfig.*) where applicable."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Update the post-deploy smoke checklist to explicitly verify the call button opens the dialer with +918824495515 on mobile.",
+      "acceptanceCriteria": [
+        "frontend/scripts/post-deploy-smoke-check.md includes a step to tap the call button on mobile and confirm the dialer shows +918824495515."
+      ],
+      "file_operations": [
         {
           "path": "frontend/scripts/post-deploy-smoke-check.md",
           "operation": "modify",
-          "description": "Ensure the smoke-check instructions explicitly require verifying that the recorded live URL in frontend/DEPLOYED_MAINNET.md loads successfully in a browser and that the canister IDs match the deployed canisters."
+          "description": "Add/refresh the Call Now/Call Us mobile verification step to explicitly confirm that tapping the Call button opens the device dialer showing +918824495515 (not just that a call is initiated)."
         }
       ]
     }

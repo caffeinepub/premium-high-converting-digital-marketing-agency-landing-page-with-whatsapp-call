@@ -1,11 +1,11 @@
 # Specification
 
 ## Summary
-**Goal:** Set the project domain/slug to `techmarket-digital` and deploy the latest frontend and backend canisters live to the Internet Computer mainnet.
+**Goal:** Ensure all Call Now/Call Us phone actions across the site dial the provided number (+918824495515) using a single centralized config value.
 
 **Planned changes:**
-- Update the app’s deployment/project configuration to use the domain/slug value `techmarket-digital` and ensure it passes platform validation rules.
-- Deploy (“push live”) the current frontend and backend canisters to IC mainnet.
-- Record the resulting live URL and the deployed frontend/backend canister IDs in `frontend/DEPLOYED_MAINNET.md`.
+- Update `frontend/src/config/contact.ts` so `contactConfig.phoneNumber` is set to `"+918824495515"` and `contactConfig.phoneUrl` resolves to `tel:+918824495515`.
+- Replace any hard-coded `tel:` links and any occurrences of the old number `+971501234567` in the frontend UI with `contactConfig.phoneUrl` (including the sticky call button usage).
+- Add/refresh a post-deploy smoke-check step in `frontend/scripts/post-deploy-smoke-check.md` to confirm the mobile dialer opens with `+918824495515` when tapping Call Now/Call Us.
 
-**User-visible outcome:** The app is accessible via the newly configured `techmarket-digital` project domain/slug on IC mainnet, and deployment details (live URL + canister IDs) are documented.
+**User-visible outcome:** On mobile, tapping any Call Now/Call Us button opens the phone dialer with `+918824495515`.

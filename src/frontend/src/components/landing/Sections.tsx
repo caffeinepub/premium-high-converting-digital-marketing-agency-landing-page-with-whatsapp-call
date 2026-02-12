@@ -313,12 +313,12 @@ export function ContactSection() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="outline" asChild>
                 <a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
-                  📲 WhatsApp
+                  📲 {contactConfig.labels.whatsapp}
                 </a>
               </Button>
               <Button variant="outline" asChild>
                 <a href={contactConfig.phoneUrl}>
-                  📞 Call Now
+                  📞 {contactConfig.labels.call}
                 </a>
               </Button>
             </div>

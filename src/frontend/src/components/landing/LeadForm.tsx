@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useLeadForm } from '../../hooks/useLeadForm';
 import { Loader2, CheckCircle2 } from 'lucide-react';
+import { siteConfig } from '../../config/siteConfig';
 
 export function LeadForm() {
   const {
@@ -25,12 +26,12 @@ export function LeadForm() {
         <CardContent className="pt-6">
           <div className="text-center py-8">
             <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Thank You!</h3>
+            <h3 className="text-2xl font-bold mb-2">{siteConfig.form.successHeading}</h3>
             <p className="text-muted-foreground mb-6">
-              We've received your inquiry. Our team will contact you within 24 hours.
+              {siteConfig.form.successMessage}
             </p>
             <Button onClick={resetForm} variant="outline">
-              Submit Another Inquiry
+              {siteConfig.form.successButtonText}
             </Button>
           </div>
         </CardContent>
@@ -41,7 +42,7 @@ export function LeadForm() {
   return (
     <Card className="border-2">
       <CardHeader>
-        <CardTitle className="text-2xl">Get Your Free Strategy Call</CardTitle>
+        <CardTitle className="text-2xl">{siteConfig.form.heading}</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -125,7 +126,7 @@ export function LeadForm() {
                 Submitting...
               </>
             ) : (
-              'Get More Leads Starting Today'
+              siteConfig.cta.formSubmit
             )}
           </Button>
         </form>

@@ -1,9 +1,15 @@
+import { siteConfig } from '../config/siteConfig';
+
+/**
+ * Homepage copy and content
+ * CTA labels are now centralized in siteConfig
+ */
 export const homeCopy = {
   hero: {
     headline: 'We Help Businesses Get More Leads, Sales & Growth — Not Just Likes',
     subheadline: 'Performance-driven digital marketing that delivers real results in 30 days.',
-    primaryCTA: 'Get Free Strategy Call',
-    secondaryCTA: 'WhatsApp Now',
+    primaryCTA: siteConfig.cta.primaryButton,
+    secondaryCTA: siteConfig.cta.secondaryButton,
   },
   trust: {
     headline: 'Trusted by Growing Brands',
@@ -28,8 +34,8 @@ export const homeCopy = {
   cta: {
     headline: 'Ready to Scale Your Business?',
     subheadline: 'Talk to a Marketing Expert Now',
-    primaryCTA: 'Book Free Call',
-    secondaryCTA: 'WhatsApp Us',
+    primaryCTA: siteConfig.cta.bookCall,
+    secondaryCTA: siteConfig.cta.whatsappUs,
   },
   contact: {
     headline: 'Get Started Today',

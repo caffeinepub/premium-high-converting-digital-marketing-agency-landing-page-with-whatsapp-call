@@ -1,44 +1,45 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T04:06:33.915Z",
+  "generatedAt": "2026-02-10T05:10:12.414Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 3,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-14",
-        "summary": "Set the project domain/slug to \"techmarket-digital\" wherever the app’s deployment/project configuration stores the domain value, ensuring it meets the platform validation rules (5–50 chars; only letters, numbers, and hyphens).",
+        "id": "REQ-1",
+        "summary": "Update the site-wide phone number used for all tel: links so the Call Now/Call Us button dials +918824495515.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/project-domain.json",
-          "frontend/scripts/deploy-mainnet.sh",
-          "frontend/DEPLOYMENT.md"
+          "frontend/src/config/contact.ts"
         ],
         "matchedFiles": [
-          "frontend/project-domain.json",
-          "frontend/scripts/deploy-mainnet.sh",
-          "frontend/DEPLOYMENT.md"
+          "frontend/src/config/contact.ts"
         ]
       },
       {
-        "id": "REQ-15",
-        "summary": "Deploy (“push live”) the latest frontend and backend canisters to Internet Computer mainnet after the domain is set, and record the resulting live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
-        "status": "implemented",
+        "id": "REQ-2",
+        "summary": "Ensure every phone/call CTA in the UI uses the centralized contactConfig.phoneUrl (no hard-coded phone numbers) so future phone updates work consistently.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/DEPLOYED_MAINNET.md",
-          "frontend/scripts/deploy-mainnet.sh",
+          "frontend/src/components/landing/StickyContactButtons.tsx",
+          "frontend/src/components/landing/Sections.tsx",
+          "frontend/src/components/landing/Header.tsx"
+        ],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Add/refresh a post-deploy smoke-check item to verify the Call Now/Call Us button dials the configured number (+918824495515) on mobile.",
+        "status": "missing",
+        "plannedFiles": [
           "frontend/scripts/post-deploy-smoke-check.md"
         ],
-        "matchedFiles": [
-          "frontend/DEPLOYED_MAINNET.md",
-          "frontend/scripts/deploy-mainnet.sh",
-          "frontend/scripts/post-deploy-smoke-check.md"
-        ]
+        "matchedFiles": []
       }
     ]
   },
@@ -47,11 +48,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/DEPLOYED_MAINNET.md",
-    "frontend/DEPLOYMENT.md",
-    "frontend/project-domain.json",
-    "frontend/scripts/deploy-mainnet.sh",
-    "frontend/scripts/post-deploy-smoke-check.md",
+    "frontend/src/config/contact.ts",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

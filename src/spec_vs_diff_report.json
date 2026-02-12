@@ -1,55 +1,47 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-10T04:06:33.912Z",
-  "summary": "REQ-14 appears implemented by adding a project-domain config file set to \"techmarket-digital\" and adding domain-validation logic in a mainnet deploy script/docs. REQ-15 is not fully satisfied because the mainnet deployment record file is present but not filled with actual live URL and canister IDs; the diff also cannot prove an actual successful mainnet deployment occurred.",
+  "generatedAt": "2026-02-10T05:10:12.412Z",
+  "summary": "REQ-1 appears implemented by updating the centralized phone number and tel URL computation in frontend/src/config/contact.ts. However, there is no diff evidence that other tel: links were audited/updated to use contactConfig.phoneUrl (REQ-2), nor that the post-deploy smoke-check documentation was updated (REQ-3).",
   "missing_requirements": [
     {
-      "id": "REQ-15",
-      "requirement": "Deploy (“push live”) the latest frontend and backend canisters to Internet Computer mainnet after the domain is set, and record the resulting live URL and canister IDs in frontend/DEPLOYED_MAINNET.md.",
-      "reason": "The deployment record file is not filled with the required concrete values (live site URL and frontend/backend canister IDs). The diff shows placeholders/unfinished sections, and there is no evidence of actual deployed canister IDs or a completed deployment.",
+      "id": "REQ-2",
+      "requirement": "Ensure every phone/call CTA in the UI uses the centralized contactConfig.phoneUrl (no hard-coded phone numbers) so future phone updates work consistently.",
+      "reason": "The diff only shows changes to frontend/src/config/contact.ts plus metadata/state files. There are no shown modifications to any UI components (e.g., StickyContactButtons.tsx or other CTAs) to remove hard-coded tel: links or the old number, and no evidence of a codebase-wide cleanup/search result.",
       "evidence": [
-        "frontend/DEPLOYED_MAINNET.md",
-        "frontend/scripts/deploy-mainnet.sh"
+        "frontend/src/config/contact.ts",
+        "frontend-file-summaries.txt"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "requirement": "Add/refresh a post-deploy smoke-check item to verify the Call Now/Call Us button dials the configured number (+918824495515) on mobile.",
+      "reason": "No diff evidence shows changes to frontend/scripts/post-deploy-smoke-check.md, and that file is not listed among modified files.",
+      "evidence": [
+        "<file-diff>: modified files list does not include frontend/scripts/post-deploy-smoke-check.md"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Large set of frontend UI/content/SEO/styling changes unrelated to setting a project domain/slug and deploying to IC mainnet (violates the stated non-goal of not changing site content/copy beyond what is required for domain+deploy).",
-      "reason": "BuildRequest only asks to set the project domain/slug and deploy/record mainnet info; the diff summary indicates extensive homepage section copy, layout, styling, animations, SEO metadata, contact links, and multiple component updates.",
+      "description": "Updated/added project metadata/state tracking entries for AR-1/AR-2/AR-3 in project_state.json.",
+      "reason": "The BuildRequest does not request changes to project_state.json; it only specifies frontend config/UI usage and a smoke-check doc update.",
       "evidence": [
-        "frontend-file-summaries.txt",
-        "frontend/src/App.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/components/landing/Sections.tsx",
-        "frontend/src/components/landing/Header.tsx",
-        "frontend/src/components/landing/Footer.tsx",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js",
-        "frontend/index.html",
-        "frontend/src/content/homeCopy.ts",
-        "frontend/src/config/contact.ts"
+        "project_state.json"
       ]
     },
     {
-      "description": "Added additional deployment documentation and a smoke-check checklist beyond the requested requirement to record live URL/canister IDs in frontend/DEPLOYED_MAINNET.md.",
-      "reason": "REQ-15 specifically requires recording the live URL and canister IDs in frontend/DEPLOYED_MAINNET.md; extra guides/checklists/scripts were not explicitly requested (even if potentially helpful).",
+      "description": "Modified frontend-file-summaries.txt contents.",
+      "reason": "The BuildRequest does not request updating summary/index files; requested changes target contact config, UI tel link usage, and a smoke-check markdown file.",
       "evidence": [
-        "frontend/DEPLOYMENT.md",
-        "frontend/scripts/post-deploy-smoke-check.md",
-        "frontend/scripts/deploy-mainnet.sh"
+        "frontend-file-summaries.txt"
       ]
     }
   ],
   "confidence": 0.72,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/DEPLOYED_MAINNET.md",
-    "frontend/DEPLOYMENT.md",
-    "frontend/project-domain.json",
-    "frontend/scripts/deploy-mainnet.sh",
-    "frontend/scripts/post-deploy-smoke-check.md",
+    "frontend/src/config/contact.ts",
     "project_state.json"
   ]
 }

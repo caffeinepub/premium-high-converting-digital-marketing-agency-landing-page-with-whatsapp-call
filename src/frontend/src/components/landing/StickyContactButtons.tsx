@@ -15,7 +15,7 @@ export function StickyContactButtons() {
           href={contactConfig.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat on WhatsApp"
+          aria-label={`Chat on ${contactConfig.labels.whatsapp}`}
         >
           <MessageCircle className="w-6 h-6" />
         </a>
@@ -28,7 +28,7 @@ export function StickyContactButtons() {
         className="fixed bottom-6 right-24 z-40 rounded-full w-14 h-14 shadow-lg hover:scale-110 transition-transform md:hidden"
         asChild
       >
-        <a href={contactConfig.phoneUrl} aria-label="Call us">
+        <a href={contactConfig.phoneUrl} aria-label={contactConfig.labels.call}>
           <Phone className="w-6 h-6" />
         </a>
       </Button>

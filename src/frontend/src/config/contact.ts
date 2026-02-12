@@ -1,9 +1,22 @@
-// Contact configuration - update these values with your actual contact details
+import { siteConfig } from './siteConfig';
+
+/**
+ * Contact configuration
+ * Update WhatsApp and phone numbers here
+ */
 export const contactConfig = {
   // WhatsApp number (include country code without + or spaces)
   whatsappNumber: '918824495515',
   // Phone number for tel: links
-  phoneNumber: '+971501234567',
+  phoneNumber: '+918824495515',
+  
+  // Display labels (from central config)
+  get labels() {
+    return {
+      whatsapp: siteConfig.cta.secondaryButton,
+      call: 'Call Now',
+    };
+  },
   
   // Computed URLs
   get whatsappUrl() {
